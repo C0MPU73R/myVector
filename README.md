@@ -1,2 +1,2 @@
 # myVector
- A projeect aimed to simulate the C++ <vector> lib
+ A project aimed to simulate the C++ <vector> lib
