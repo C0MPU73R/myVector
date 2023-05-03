@@ -20,12 +20,14 @@ public:
 	{
 		deepCopy(rhs); //this will make a deep copy
 	}
-	~myVector()
+	~myVector() // destruction, properly clean up any allocated memory on the heap that was used for objects created in the vector (dynamic array)
 	{
 		delete[] locations; //delete all allocated memory
-		mVSize = 0;
+		mVSize = 0; // Then reset the size of the vector to zero
 	}
-	myVector operator=(const myVector& rhs)
+	myVector operator=(const myVector& rhs) // Overloaded assignment operator. If myVector equals another myVector, go ahead and delete our current locations, deep copy the myVector
+		// that is passed in, then go ahead and return the instance of *this, being the new myVector itself that was created in the deep copy and copied
+		// over all of the data that the rhs myVector had
 	{
 		delete[] locations;
 		deepCopy(rhs);
