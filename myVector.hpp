@@ -1,3 +1,7 @@
+/*
+@filenaname: myVector.hpp
+@author: C0MPU73R
+*/
 #ifndef MYVECTOR_H
 #define MYVECTOR_H
 #include <iostream>
@@ -13,8 +17,7 @@ public:
 	}
 	myVector(const myVector& rhs)
 	{
-		//this will make a deep copy
-		deepCopy(rhs);
+		deepCopy(rhs); //this will make a deep copy
 	}
 	~myVector()
 	{
@@ -47,7 +50,7 @@ public:
 	{
 		if (mVSize == 0)
 		{
-			this->mVSize=1;
+			this->mVSize = 1;
 		}
 		else
 		{
@@ -55,16 +58,16 @@ public:
 		}
 		myVector rhs = *this;
 		this->locations = new C[mVSize];
-		for (int idx = 0; idx < mVSize-1; idx++)
+		for (int idx = 0; idx < mVSize - 1; ++idx)
 		{
 			locations[idx] = rhs.locations[idx]; //fill vector besides new element.
 		}
 		//there should now be one space left for new added element.
-		locations[mVSize-1] = element;
+		locations[mVSize - 1] = element;
 	}
 	void printMyVector() const
 	{
-		for (int idx = 0; idx < mVSize; idx++)
+		for (int idx = 0; idx < mVSize; ++idx)
 		{
 			cout << locations[idx] << endl;
 		}
