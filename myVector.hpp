@@ -13,9 +13,10 @@ public:
 	myVector(int size = 0)
 	{
 		mVSize = size;
-		locations = new C[mVSize];
+		locations = new C[mVSize]; //Create the dynamic array
 	}
-	myVector(const myVector& rhs)
+	myVector(const myVector& rhs) //Parameterized constructor for a given rhs input of a myVector object that does not modify it, but 
+		// merely prepares it for a deep copy operation
 	{
 		deepCopy(rhs); //this will make a deep copy
 	}
