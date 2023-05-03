@@ -37,11 +37,12 @@ public:
 	{
 		if (idx >= 0 && idx < mVSize) //Make sure that the index is in a valid range. We want to start at 0  and end at n, similar to that of an array or a sequence type.
 		{
-			return locations[idx];
+			return locations[idx]; // Return the object of type template at the specific index that the user wanted.
 		}
 		else
 		{
-			throw std::out_of_range("Index out of range");
+			throw std::out_of_range("Index out of range"); // Else, you are trying to return an element that is out of the scope, throw an error to the user
+
 		}
 	}
 	int myVecSize() const
