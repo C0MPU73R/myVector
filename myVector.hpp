@@ -35,7 +35,7 @@ public:
 	}
 	C& operator[](int idx) // template type so that myVector can indeed be of any type, holding those specfic types of objects. They can even primitive data types such as ints, etc.
 	{
-		if (idx >= 0 && idx < mVSize) //check if in range
+		if (idx >= 0 && idx < mVSize) //Make sure that the index is in a valid range. We want to start at 0  and end at n, similar to that of an array or a sequence type.
 		{
 			return locations[idx];
 		}
