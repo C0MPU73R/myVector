@@ -70,9 +70,9 @@ public:
 			// the last location as this is the one that is for the new element.
 		}
 		//there should now be one space left for new added element.
-		locations[mVSize - 1] = element;
+		locations[mVSize - 1] = element;// go ahead and put that element in the last space in the dynamic array.
 	}
-	void printMyVector() const
+	void printMyVector() const // Printing functionality for the myVector. This will print all of the elements in the dynamic array. If they are not primitive types, the information of the object will be printed.
 	{
 		for (int idx = 0; idx < mVSize; ++idx)
 		{
@@ -80,16 +80,16 @@ public:
 		}
 	}
 private:
-	int mVSize;
-	C* locations = nullptr;
-	void deepCopy(const myVector& rhs)
+	int mVSize; // size of the dynamic array, type int.
+	C* locations = nullptr; // locations pointer of type template C, which will be used to create new template objects. Initially set it to nullptr upon creation.
+	void deepCopy(const myVector& rhs) // The deep copy function. This is private due to its functionally being used by the API functions above. The overloaded assignment operator makes use of this the programmer can use at will.
 	{
-		mVSize = rhs.mVSize;
-		locations = new C[mVSize];
+		mVSize = rhs.mVSize; // Take a const ref parameter of rhs, copy over rhs' current size.
+		locations = new C[mVSize]; // Create a new locations object of type C that will act as the dynamic array. TODO: Probably a bad name for this.
 		for (int idx = 0; idx < mVSize; idx++)
 		{
-			this->locations[idx] = rhs.locations[idx];
+			this->locations[idx] = rhs.locations[idx]; // go ahead and copy over the the data from the rhs. This new dynamic array has the exact same size as the rhs, hence no indexing issues.
 		}
-	}
+	} // we now have a brand new dynamic array, with no shallow copies whatsoever, hence making use of this new myVector will not affect the rhs myVector that was passed in. They are completely differemt collections.
 };
 #endif
