@@ -45,7 +45,7 @@ public:
 
 		}
 	}
-	int myVecSize() const
+	int myVecSize() const // constant return, as we call this function to see what our current size is, we need not to modify it. That will be done as we add and remove objects from the collection
 	{
 		return mVSize;
 	}
