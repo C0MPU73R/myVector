@@ -6,7 +6,7 @@
 #define MYVECTOR_H
 #include <iostream>
 using namespace std;
-template <typename C>
+template <class C>
 class myVector
 {
 public:
