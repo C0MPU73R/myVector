@@ -33,7 +33,7 @@ public:
 		deepCopy(rhs);
 		return *this;
 	}
-	C& operator[](int idx)
+	C& operator[](int idx) // template type so that myVector can indeed be of any type, holding those specfic types of objects. They can even primitive data types such as ints, etc.
 	{
 		if (idx >= 0 && idx < mVSize) //check if in range
 		{
