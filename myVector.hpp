@@ -50,21 +50,24 @@ public:
 		return mVSize;
 	}
 	//create pop
-	void push(C element)
+	void push(C element) //Create a "push" like function to add elements to the myVector of type template 'C'.
 	{
-		if (mVSize == 0)
+		if (mVSize == 0) // if the size of the myVector is zero, this push is actually the first push, hence the size was originally zero, now it is one.
 		{
 			this->mVSize = 1;
 		}
-		else
+		else // else, the collection already had a size of greater than zero, hence go ahead and increase the size by one.
 		{
 			this->mVSize++;
 		}
-		myVector rhs = *this;
-		this->locations = new C[mVSize];
+		myVector rhs = *this; // go ahead and create a myVector, call it rhs. Let it use the overloaded assignment operator that we created earlier to copy over the 'lhs' or current myVector. 
+		// This assignment operator may look normal, but there is a lot going on behind the scene, this overloaded operator is making use of the overloaded operator
+		// function, which in turn uses the deep copy function.
+		this->locations = new C[mVSize]; // create a brand new blank collection, of the new size that we need
 		for (int idx = 0; idx < mVSize - 1; ++idx)
 		{
-			locations[idx] = rhs.locations[idx]; //fill vector besides new element.
+			locations[idx] = rhs.locations[idx]; //fill vector besides new element. (Copy over all of the old elements from the rhs, keeping in mind not to yet fill
+			// the last location as this is the one that is for the new element.
 		}
 		//there should now be one space left for new added element.
 		locations[mVSize - 1] = element;
