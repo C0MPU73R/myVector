@@ -12,7 +12,7 @@ class myVector
 public:
 	myVector(int size = 0)
 	{
-		mVSize = size;
+		mVSize = size; //Create the initial size to be zero, this will be modified as elements are added and removed
 		locations = new C[mVSize]; //Create the dynamic array
 	}
 	myVector(const myVector& rhs) //Parameterized constructor for a given rhs input of a myVector object that does not modify it, but 
